@@ -43,13 +43,13 @@ export const updateNote = async (req, res) => {
         new: true,
       }
     );
-    if (!updateNote) {
+    if (!updatedNote) {
       return res
         .status(404)
         .json({ message: "Note you are searching for is not found" });
     }
-    await updateNote.save();
-    res.status(200).json(updateNote);
+    await updatedNote.save();
+    res.status(200).json(updatedNote);
   } catch (error) {
     res.status(500).json({ message: "Unable to update note in DB" });
     console.log("Can't update note in db", error);
