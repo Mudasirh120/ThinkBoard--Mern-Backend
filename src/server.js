@@ -9,15 +9,16 @@ app.use(express.json()); // middleware to access req.body in json
 // rate limiting is use to limit req so server doesn't crash
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.FRONTEND_URL,
   })
 );
 app.use(rateLimiter);
 app.use("/api/notes", notesRouter);
 const PORT = process.env.PORT || 5001;
 
-connectDd().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server started at http://localhost:${PORT}`);
-  });
+connectDd();
+
+export default app;
+app.listen(PORT, () => {
+  console.log(`Server started at http://localhost:${PORT}`);
 });
