@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import notesRouter from "./routes/notes.routes.js";
 import connectDd from "./db/mongodb.js";
