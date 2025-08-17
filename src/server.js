@@ -16,11 +16,6 @@ app.use(
 );
 app.use(rateLimiter);
 app.use("/api/notes", notesRouter);
-const PORT = process.env.PORT || 5001;
-
 connectDd();
 
 export default app;
-// app.listen(PORT, () => {
-//   console.log(`Server started at http://localhost:${PORT}`);
-// });
